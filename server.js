@@ -42,7 +42,24 @@ server.listen(PORT || 3000, addrIP || "0.0.0.0", function(){
 
 // routing
 app.get('/', function (req, res) {
+	console.log('root: index');
 	res.sendfile(__dirname + '/index.html');
+});
+
+app.get('/chat', function (req, res) {
+	console.log('root: chat');
+	res.sendfile(__dirname + '/client/chat.html');
+	// res.sendfile(__dirname + '/newversion/index.html');
+});
+
+app.get('/new', function (req, res) {
+	console.log('root: new');
+	res.sendfile(__dirname + '/client/newversion/index.html');
+});
+
+app.get('/test', function (req, res) {
+	console.log('root: test');
+	res.sendfile(__dirname + '/client/test.html');
 });
 
 // routing
@@ -129,4 +146,3 @@ function getFiles(dirName, callback) {
         callback(directoryObject);
     });
 }
-
